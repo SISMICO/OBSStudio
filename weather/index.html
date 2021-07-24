@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script lang="javascript">
+        var api = "https://api.tempoagora.com.br/weather?city=SaoPaulo-SP";
+
+        function start() {
+            setInterval(getWeatherAPI, 600000); // 10 minutos
+        }
+
+        function update(response) {
+            var temp = document.getElementById("temp");
+            temp.innerText = getTemperature(response);
+        }
+
+        function getWeatherAPI() {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", api, true);
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4) {
+                    update(xmlHttp.responseText);
+                }
+            }
+            xmlHttp.send();
+        }
+
+        function getTemperature(response) {
+            var obj = JSON.parse(response);
+            return obj.temp;
+        }
+
+        addEventListener('DOMContentLoaded', (event) => {
+            getWeatherAPI();
+        });
+    </script>
+</head>
+
+<body style="font-size: 5em;">
+    <div id="temp"></div>
+</body>
+
+</html>
