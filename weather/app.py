@@ -22,7 +22,7 @@ def build_preflight_response():
 def build_actual_response(value):
     response = make_response()
     response.headers.add("Access-Control-Allow-Origin", "*")
-    response.data = '%d°' % value
+    response.data = '%d' % value
     return response
 
 def http_get(url):

@@ -2,16 +2,23 @@
 <html>
 
 <head>
+    <!-- Weather Font from https://erikflowers.github.io/weather-icons/ -->
+    <link rel="stylesheet" href="css/weather-icons.css">
     <script lang="javascript">
         var api = "http://localhost:5001/weather";
+        var interval = 600000; // 10 minutes
+        var hot = 24;
+        var cold = 17;
 
         function start() {
-            setInterval(getWeatherAPI, 600000); // 10 minutos
+            setInterval(getWeatherAPI, interval); 
         }
 
         function update(response) {
-            var temp = document.getElementById("temp");
-            temp.innerText = getTemperature(response);
+            var tempLabel = document.getElementById("temp");
+            var tempValue = getTemperature(response);
+            tempLabel.innerText = tempValue + '°';
+            setIconTemperature(tempValue);
         }
 
         function getWeatherAPI() {
@@ -32,6 +39,16 @@
             return response;
         }
 
+        function setIconTemperature(value) {
+            var hotIcon = document.getElementById("hoticon");
+            var coldIcon = document.getElementById("coldicon");
+            var normalIcon = document.getElementById("normalicon");
+
+            hotIcon.style.display = (value >= hot) ? 'unset' : 'none';
+            coldIcon.style.display = (value <= cold) ? 'unset' : 'none';
+            normalIcon.style.display = (value > cold && value < hot) ? 'unset' : 'none';
+        }
+
         addEventListener('DOMContentLoaded', (event) => {
             getWeatherAPI();
         });
@@ -39,7 +56,12 @@
 </head>
 
 <body style="font-size: 5em;">
-    <div id="temp"></div>
+    <div style="color: rgba(0,0,255, 0.5);">
+        <i id="hoticon" class="wi wi-day-sunny"></i>
+        <i id="coldicon" class="wi wi-snowflake-cold"></i>
+        <i id="normalicon" class="wi wi-day-cloudy"></i>
+    </div>
+    <div id="temp" style="display: none;"></div>
 </body>
 
 </html>
