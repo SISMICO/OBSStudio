@@ -3,7 +3,7 @@
 
 <head>
     <script lang="javascript">
-        var api = "https://api.tempoagora.com.br/weather?city=SaoPaulo-SP";
+        var api = "http://localhost:5001/weather";
 
         function start() {
             setInterval(getWeatherAPI, 600000); // 10 minutos
@@ -17,6 +17,7 @@
         function getWeatherAPI() {
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", api, true);
+            xmlHttp.setRequestHeader('X-PINGOTHER', 'pingpong');
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState == 4) {
                     update(xmlHttp.responseText);
@@ -26,8 +27,9 @@
         }
 
         function getTemperature(response) {
-            var obj = JSON.parse(response);
-            return obj.temp;
+            //var obj = JSON.parse(response);
+            //return obj.temp;
+            return response;
         }
 
         addEventListener('DOMContentLoaded', (event) => {
