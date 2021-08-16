@@ -11,6 +11,7 @@
         var cold = 17;
 
         function start() {
+	    getWeatherAPI();
             setInterval(getWeatherAPI, interval); 
         }
 
@@ -50,7 +51,7 @@
         }
 
         addEventListener('DOMContentLoaded', (event) => {
-            getWeatherAPI();
+            start();
         });
     </script>
 </head>
