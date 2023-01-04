@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <!-- Weather Font from https://erikflowers.github.io/weather-icons/ -->
   <link rel="stylesheet" href="css/weather-icons.css">
   <script lang="javascript">
@@ -16,10 +17,12 @@
     }
 
     function update(response) {
+      console.log('Starting Update!');
       var tempLabel = document.getElementById("temp");
       var tempValue = getTemperature(response);
       tempLabel.innerText = tempValue + '°';
       setIconTemperature(tempValue);
+      console.log(`Temperature: ${tempValue}`);
     }
 
     function getWeatherAPI() {
