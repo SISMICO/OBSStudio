@@ -1,0 +1,45 @@
+<html>
+  <style>
+    body {
+      color: white;
+      background-color: black;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById("panel").innerText = random().join(" | ");
+    }
+    
+    function getRandomIndex(max) {
+      return Math.floor(Math.random() * max);
+    }
+    
+    function random() {
+      var result = [];
+      var indexes = people.keys();
+      for (const person in people) {
+        var indexPosition = getRandomIndex(total);
+        result.push(people[i]);
+        indexes
+        total--;
+      }
+      return result;
+    }
+    
+    var people = [
+      "Bento",
+      "Sosa",
+      "Alysson",
+      "Samille",
+      "Ellen",
+      "Vini"
+    ]
+  </script>
+  <body>
+    <h1>ALOW</h1>
+    <p>
+      
+    </p>
+    <p id="panel" name="panel">WOW</p>
+  </body>
+</html>
