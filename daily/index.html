@@ -1,45 +1,37 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta charset="utf-8" />
+    <title>Daily Tool</title>
+  </head>
   <style>
     body {
       color: white;
       background-color: black;
     }
   </style>
-  <script type="text/javascript">
-    window.onload = function() {
-      document.getElementById("panel").innerText = random().join(" | ");
-    }
-    
-    function getRandomIndex(max) {
-      return Math.floor(Math.random() * max);
-    }
-    
-    function random() {
-      var result = [];
-      var indexes = people.keys();
-      for (const person in people) {
-        var indexPosition = getRandomIndex(total);
-        result.push(people[i]);
-        indexes
-        total--;
-      }
-      return result;
-    }
-    
-    var people = [
-      "Bento",
-      "Sosa",
-      "Alysson",
-      "Samille",
-      "Ellen",
-      "Vini"
-    ]
-  </script>
   <body>
     <h1>ALOW</h1>
+    <span id="panel" name="panel">WOW</span>
     <p>
-      
+      <span>Total:</span>
+      <span id="totalClock" name="totalClock"></span>
     </p>
-    <p id="panel" name="panel">WOW</p>
+    <p>
+      <span id="person" name="person"></span>
+      <span id="personClock" name="personClock"></span>
+    </p>
+    <div>
+      <button id="start">Iniciar</button>
+      <button id="stop">Parar</button>
+    </div>
+    <div>
+      <button id="nextPerson">Próximo</button>
+    </div>
+    <script type="module" src="script/bundle.js"></script>
   </body>
 </html>
