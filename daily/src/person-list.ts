@@ -15,6 +15,11 @@ export default class PersonList {
     return this.getPerson();
   }
   
+  previous(): string {
+    this.position--;
+    return this.getPerson();
+  }
+  
   private getPerson(): string {
     return this.people[this.position];
   }

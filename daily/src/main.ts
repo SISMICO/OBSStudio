@@ -45,6 +45,6 @@ const nextPerson = () => {
 }
 
 const setPerson = (person: string) => {
-  document.getElementById("person").innerText = person;
+  document.getElementById("person").innerText = `${person}:`;
 }
 
