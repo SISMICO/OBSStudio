@@ -32,6 +32,7 @@ const startDaily = () => {
   dailyClock.startClock();
   personClock.startClock();
   setPerson(persons.start());
+  setNextPerson(persons.getNextPerson());
 }
 
 const stopDaily = () => {
@@ -42,9 +43,13 @@ const stopDaily = () => {
 const nextPerson = () => {
   personClock.resetClock();
   setPerson(persons.next());
+  setNextPerson(persons.getNextPerson());
 }
 
 const setPerson = (person: string) => {
   document.getElementById("person").innerText = `${person}:`;
 }
 
+const setNextPerson = (person: string) => {
+  document.getElementById("personNext").innerText = `${person}`;
+}

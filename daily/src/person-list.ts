@@ -20,6 +20,10 @@ export default class PersonList {
     return this.getPerson();
   }
   
+  getNextPerson(): string {
+    return this.people[this.position + 1];
+  }
+  
   private getPerson(): string {
     return this.people[this.position];
   }
