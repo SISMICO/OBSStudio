@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/weather', methods=['OPTIONS','GET'])
 def startup():
     #SOURCE_URL = 'https://api.tempoagora.com.br/weather?city=SaoPaulo-SP'
-    SOURCE_URL = 'https://www.tempoagora.com.br/json/myclimatempo/user/weatherNow?idlocale=3477'
+    SOURCE_URL = 'https://tempoagora.uol.com.br/json/myclimatempo/user/weatherNow?idlocale=3477'
     if request.method == 'OPTIONS':
         return build_preflight_response()
     else:
